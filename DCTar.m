@@ -368,7 +368,7 @@ static const char template_header[] = {
     memset(&nameBytes, '\0', TAR_NAME_SIZE + 1); // Fill byte array with nul char
     memcpy(&nameBytes, [self dataForObject:object inRange:NSMakeRange((uInt)offset + TAR_NAME_POSITION, TAR_NAME_SIZE)
                                 orLocation:offset + TAR_NAME_POSITION andLength:TAR_NAME_SIZE].bytes, TAR_NAME_SIZE);
-    NSString *name = [NSString stringWithCString:nameBytes encoding:NSASCIIStringEncoding];
+    NSString *name = [NSString stringWithCString:nameBytes encoding:NSUTF8StringEncoding];
     free(nameBytes);
     return name;
 }
